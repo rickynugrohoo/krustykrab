@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "EB Garamond", Georgia, serif;
+  --font-sans: "Inter Tight", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fef4ea;
+  color: #1a1a1a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Display serif set to uppercase-heavy look used across headings.
+   ITC Garamond Book Narrow is proprietary; EB Garamond is the closest
+   freely-licensed substitute. Slight horizontal compression approximates
+   the "narrow" cut used in the source design. */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.display-narrow {
+  transform: scaleX(0.92);
+  transform-origin: left center;
+  display: inline-block;
+}
+
+/* Hide scrollbar for horizontal category strip on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Marquee strip */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
