@@ -3,12 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { categories, itemsByCategory, type CategoryId } from "@/lib/menu-data";
+import { categories, type CategoryId, type MenuItem } from "@/lib/menu-data";
 import MenuCard from "@/components/MenuCard";
 
-export default function MenuHighlights() {
+export default function MenuHighlights({ items }: { items: MenuItem[] }) {
   const [active, setActive] = useState<CategoryId>("burgers");
-  const items = itemsByCategory(active).slice(0, 3);
+  const shown = items.filter((i) => i.category === active).slice(0, 3);
 
   return (
     <section id="highlights" className="px-5 py-16 md:px-[60px] md:py-24">
@@ -32,7 +32,7 @@ export default function MenuHighlights() {
 
       {/* Cards */}
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((item) => (
+        {shown.map((item) => (
           <MenuCard key={item.id} item={item} />
         ))}
       </div>

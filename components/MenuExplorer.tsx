@@ -3,31 +3,31 @@
 import { useMemo, useState } from "react";
 import {
   categories,
-  menuItems,
   type CategoryId,
+  type MenuItem,
 } from "@/lib/menu-data";
 import Sidebar from "./Sidebar";
 import MenuGrid from "./MenuGrid";
 
 type Selection = CategoryId | "all";
 
-export default function MenuExplorer() {
+export default function MenuExplorer({ items }: { items: MenuItem[] }) {
   const [active, setActive] = useState<Selection>("all");
   const [query, setQuery] = useState("");
 
   const counts = useMemo(() => {
     const base: Record<Selection, number> = {
-      all: menuItems.length,
+      all: items.length,
       burgers: 0,
       drinks: 0,
       sides: 0,
       extras: 0,
     };
     for (const c of categories) {
-      base[c.id] = menuItems.filter((i) => i.category === c.id).length;
+      base[c.id] = items.filter((i) => i.category === c.id).length;
     }
     return base;
-  }, []);
+  }, [items]);
 
   const handleSelect = (id: Selection) => {
     setActive(id);
@@ -51,7 +51,7 @@ export default function MenuExplorer() {
           onQuery={setQuery}
           counts={counts}
         />
-        <MenuGrid items={menuItems} query={query} />
+        <MenuGrid items={items} query={query} />
       </div>
     </section>
   );
