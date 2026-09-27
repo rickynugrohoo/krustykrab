@@ -31,10 +31,8 @@ export default function MenuExplorer({ items }: { items: MenuItem[] }) {
 
   const handleSelect = (id: Selection) => {
     setActive(id);
-    if (id !== "all") {
-      const el = document.getElementById(`section-${id}`);
-      el?.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
+    // On small screens, bring the (now filtered) results into view.
+    if (typeof window !== "undefined" && window.innerWidth < 1024) {
       document
         .getElementById("menu")
         ?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -51,7 +49,7 @@ export default function MenuExplorer({ items }: { items: MenuItem[] }) {
           onQuery={setQuery}
           counts={counts}
         />
-        <MenuGrid items={items} query={query} />
+        <MenuGrid items={items} query={query} active={active} />
       </div>
     </section>
   );

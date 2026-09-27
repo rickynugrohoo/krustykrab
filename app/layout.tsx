@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { CartProvider } from "@/components/CartContext";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import InstagramSection from "@/components/InstagramSection";
 
 const interTight = localFont({
   src: "./fonts/intertight.woff2",
@@ -36,16 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${interTight.variable} ${ebGaramond.variable}`}>
-      <body>
-        <CartProvider>
-          <div className="flex min-h-screen flex-col bg-cream">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <InstagramSection />
-            <Footer />
-          </div>
-        </CartProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -7,32 +7,33 @@ const HEAD =
 export default function HomeHero() {
   return (
     <section className="relative flex min-h-[90vh] flex-col overflow-hidden px-5 pb-10 pt-4 md:px-[60px]">
-      {/* Headline + burgers */}
-      <div className="relative mx-auto flex w-full max-w-[1320px] flex-1 items-center justify-center">
+      {/* Headline + burgers (burgers anchored to the full section width so
+          they hug the edges on wide screens, like the Figma design) */}
+      <div className="relative flex w-full flex-1 items-center justify-center">
         {/* Left burger */}
-        <div className="pointer-events-none absolute left-[2%] top-[55%] z-20 hidden h-[290px] w-[250px] -translate-y-1/2 lg:block xl:h-[340px] xl:w-[290px] 2xl:h-[380px] 2xl:w-[320px]">
+        <div className="pointer-events-none absolute left-[8%] top-1/2 z-20 hidden h-[300px] w-[260px] -translate-y-1/2 lg:block xl:h-[350px] xl:w-[300px] 2xl:h-[390px] 2xl:w-[330px]">
           <Image
             src="/hero/hero-burger.png"
             alt="Stacked Krusty Krab burger"
             fill
-            sizes="320px"
+            sizes="330px"
             className="object-contain"
             priority
           />
         </div>
         {/* Right burger (mirrored) */}
-        <div className="pointer-events-none absolute right-[2%] top-[55%] z-20 hidden h-[290px] w-[250px] -translate-y-1/2 scale-x-[-1] lg:block xl:h-[340px] xl:w-[290px] 2xl:h-[380px] 2xl:w-[320px]">
+        <div className="pointer-events-none absolute right-[8%] top-1/2 z-20 hidden h-[300px] w-[260px] -translate-y-1/2 scale-x-[-1] lg:block xl:h-[350px] xl:w-[300px] 2xl:h-[390px] 2xl:w-[330px]">
           <Image
             src="/hero/hero-burger.png"
             alt=""
             fill
-            sizes="320px"
+            sizes="330px"
             className="object-contain"
           />
         </div>
 
-        {/* Text stack */}
-        <div className="relative w-full text-center">
+        {/* Text stack (capped width keeps the typography scale unchanged) */}
+        <div className="relative mx-auto w-full max-w-[1320px] text-center">
           <h1 className="relative z-10 font-display uppercase tracking-[-2px] text-ink">
             <span className={HEAD}>Big Burger</span>
             <span aria-hidden className={`${HEAD} text-transparent`}>

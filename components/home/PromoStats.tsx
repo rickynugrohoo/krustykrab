@@ -9,10 +9,11 @@ const stats = [
 export default function PromoStats() {
   return (
     <section id="story" className="relative w-full overflow-hidden bg-brand py-16 md:py-24">
-      {/* Repeating burger doodle pattern */}
+      {/* Repeating burger doodle pattern — grey artwork multiplied into the
+          red so it reads as subtle darker-red outlines (like the Figma bg). */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-[url('/icons/footer-burger.svg')] bg-[length:150px_140px] bg-repeat opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 bg-[url('/icons/footer-burger.svg')] bg-[length:160px_150px] bg-repeat opacity-[0.6] mix-blend-multiply"
       />
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-5 md:px-[60px] lg:grid-cols-2 lg:gap-16">
         {/* Photo card */}

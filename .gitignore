@@ -31,3 +31,6 @@ next-env.d.ts
 
 # local editor / launch config (machine-specific paths)
 /.claude
+
+# dev server log
+/dev.log
