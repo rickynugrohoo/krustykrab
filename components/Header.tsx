@@ -35,7 +35,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-pink-border bg-cream/95 backdrop-blur">
       <div className="flex items-center justify-between px-5 py-4 md:px-[60px] md:py-5">
         {/* Left nav (desktop) */}
-        <nav className="hidden flex-1 items-center gap-1.5 lg:flex">
+        <nav className="hidden flex-1 items-center gap-1.5 min-[1360px]:flex">
           {leftLinks.map((l) => (
             <PillLink key={l.label} {...l} />
           ))}
@@ -57,7 +57,7 @@ export default function Header() {
         </Link>
 
         {/* Right nav (desktop) */}
-        <div className="hidden flex-1 items-center justify-end gap-4 lg:flex">
+        <div className="hidden flex-1 items-center justify-end gap-4 min-[1360px]:flex">
           {rightLinks.map((l) => (
             <PillLink key={l.label} {...l} />
           ))}
@@ -83,7 +83,7 @@ export default function Header() {
         </div>
 
         {/* Mobile: cart + hamburger */}
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-3 min-[1360px]:hidden">
           <Link
             href="/cart"
             aria-label={`Cart with ${count} items`}
@@ -111,7 +111,7 @@ export default function Header() {
 
       {/* Mobile dropdown */}
       {open && (
-        <nav className="flex flex-col gap-2 border-t border-pink-border px-5 py-4 lg:hidden">
+        <nav className="flex flex-col gap-2 border-t border-pink-border px-5 py-4 min-[1360px]:hidden">
           {[...leftLinks, ...rightLinks].map((l) => (
             <Link
               key={l.label}

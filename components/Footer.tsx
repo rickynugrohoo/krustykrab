@@ -88,16 +88,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Big logo */}
-      <div className="relative z-10 flex items-center justify-center gap-3 border-t border-white/15 pb-6 pt-10 md:gap-6">
+      {/* Big logo (sized to stay on one line at every breakpoint) */}
+      <div className="relative z-10 flex items-center justify-center gap-3 overflow-hidden border-t border-white/15 pb-6 pt-10 md:gap-5">
         <Image
           src="/icons/footer-brand.svg"
           alt="Krusty Krab crab mascot"
           width={226}
           height={276}
-          className="h-[70px] w-auto shrink-0 sm:h-[110px] md:h-[150px] lg:h-[190px] xl:h-[220px]"
+          className="h-[44px] w-auto shrink-0 sm:h-[72px] md:h-[100px] lg:h-[128px] xl:h-[150px]"
         />
-        <span className="font-display leading-[0.8] tracking-[-3px] text-[64px] sm:text-[100px] md:text-[140px] lg:text-[180px] xl:text-[210px]">
+        <span className="whitespace-nowrap font-display leading-[0.8] tracking-[-2px] text-[40px] sm:text-[64px] md:text-[92px] lg:text-[120px] xl:text-[150px]">
           Krusty Krab
         </span>
       </div>
